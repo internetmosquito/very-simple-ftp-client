@@ -1,5 +1,0 @@
-02/14/2012 - Alejandro Villamarin <alejandro.villamarin@tecnalia.com>
-
-
-* Version 1.1.0 : Added deleteFile and deleteDir methods, as well as set and get for connectionType
-  

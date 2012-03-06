@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Ant-Version: Apache Ant 1.7.1
-Created-By: 20.0-b11 (Sun Microsystems Inc.)
-Built-By: Alejandro Villamarin - Tecnalia Research And Innovation
-Implementation-Title: A very simple FTP client using the ftp4j library
-Main-Class: FTPclient
-Implementation-Version: 1.1.0
-Built-Date: 20120214
-
