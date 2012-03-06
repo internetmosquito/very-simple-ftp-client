@@ -1,0 +1,207 @@
+Introduction
+************
+
+Vsftpclient is a library that wraps basic functionalities on the famous ftp4j library. It provides
+a very simple FTP client functionalities. Check API to see available methods.
+
+
+Installation instructions
+*************************
+
+Zipped file contains all the required elements to run this ftp client library. Just unzip the file
+and you will find the following contents:
+
+- dist/		Contains the jar file that implements the ftp client library, reference this in your project
+            if you plan to use this ftp client library.
+- docs/		Javadoc folder
+- lib/		Contains the libraries required to run the library. That is, log4j.jar and ftp4j.jar. You can use 
+			your own version of the first 3 ones, the one in your current java classpath, otherwise, add these
+			libraries to your classpath
+- src/		Source files
+- build.xml	The Ant file in case you want to build the project
+- Changelog
+- README
+
+
+Usage instructions
+******************
+
+The library itself is made up on a single Java class: FtpClient.
+
+This class provides the following methods to interact with an FTP server:
+
+ * setupClient -> Used to setup mandatory client parameters
+ * connect -> Connects to server
+ * disconnect -> Disconnects from server
+ * login -> Logs in the server
+ * uploadDirFiles -> Uploads contents of a sourceDir(local) to a destDir(server)
+ * uploadFile -> Uploads a file to a destDir(server)
+ * downloadFile -> Downloads a specific file from sourceDir(server) to destDir(local)
+ * downloadDirFiles -> Downloads the contents of sourceDir(server) to destDir(local)
+ 
+Please check the Javadoc for more information regarding the API
+
+
+Examples:
+
+- Setup client:
+
+	import org.ftp.simpleclient.FtpClient;
+	
+	FtpClient client = new FtpClient();
+	//Bypasses Java SSL certificate checking, only to be used if you connect to a trusted
+	//server that is using a self-signed certficate
+	client.setBypass(true);
+	client.setHost("myftpserver.org");
+	client.setPort(21);
+	client.setUser("myself");
+	client.setPassword("myself");
+	//setup the client
+	client.setupClient();
+
+-Connecting: 
+
+	import org.ftp.simpleclient.FtpClient;
+	
+	FtpClient client = new FtpClient();
+	//Bypasses Java SSL certificate checking, only to be used if you connect to a trusted
+	//server that is using a self-signed certficate
+	client.setBypass(true);
+	client.setHost("myftpserver.org");
+	client.setPort(21);
+	client.setUser("myself");
+	client.setPassword("myself");
+	
+	
+	//setup client
+	client.setupClient();
+	client.connect();
+	
+	
+- Login to server:
+
+	import org.ftp.simpleclient.FtpClient;
+	
+	FtpClient client = new FtpClient();
+	//Bypasses Java SSL certificate checking, only to be used if you connect to a trusted
+	//server that is using a self-signed certficate
+	client.setBypass(true);
+	client.setHost("myftpserver.org");
+	client.setPort(21);
+	client.setUser("myself");
+	client.setPassword("myself");
+	
+	
+	//setup client
+	client.setupClient();
+	client.connect();
+	client.login();
+	
+	
+- Upload directory:
+
+	import org.ftp.simpleclient.FtpClient;
+	
+	String sourceDir = "uploads";
+	String destDir = "lib";
+	
+	FtpClient client = new FtpClient();
+	//Bypasses Java SSL certificate checking, only to be used if you connect to a trusted
+	//server that is using a self-signed certficate
+	client.setBypass(true);
+	client.setHost("myftpserver.org");
+	client.setPort(21);
+	client.setUser("myself");
+	client.setPassword("myself");
+	
+	
+	//setup client
+	client.setupClient();
+	client.connect();
+	client.login();
+	client.uploadDirFiles(sourceDir, destDir);
+
+
+- Upload a file:
+
+	import org.ftp.simpleclient.FtpClient;
+	
+	String sourceDir = "uploads";
+	String file = "uploads/foo.jar";
+	String destDir = "lib";
+	
+	FtpClient client = new FtpClient();
+	//Bypasses Java SSL certificate checking, only to be used if you connect to a trusted
+	//server that is using a self-signed certficate
+	client.setBypass(true);
+	client.setHost("myftpserver.org");
+	client.setPort(21);
+	client.setUser("myself");
+	client.setPassword("myself");
+	
+	
+	//setup client
+	client.setupClient();
+	client.connect();
+	client.login();
+	client.uploadFile(file, destDir);
+  
+- Download a directory:
+
+	import org.ftp.simpleclient.FtpClient;
+	
+	String sourceDir = "lib";
+	String file = "lib/foo.jar";
+	String destDir = "downloads";
+	
+	FtpClient client = new FtpClient();
+	//Bypasses Java SSL certificate checking, only to be used if you connect to a trusted
+	//server that is using a self-signed certficate
+	client.setBypass(true);
+	client.setHost("myftpserver.org");
+	client.setPort(21);
+	client.setUser("myself");
+	client.setPassword("myself");
+	
+	
+	//setup client
+	client.setupClient();
+	client.connect();
+	client.login();
+	client.downloadDirFiles(sourceDir, destDir);
+
+
+	
+- Download a file:
+
+	import org.ftp.simpleclient.FtpClient;
+	
+	String sourceDir = "lib";
+	String file = "lib/foo.jar";
+	String destDir = "downloads";
+	
+	FtpClient client = new FtpClient();
+	//Bypasses Java SSL certificate checking, only to be used if you connect to a trusted
+	//server that is using a self-signed certficate
+	client.setBypass(true);
+	client.setHost("myftpserver.org");
+	client.setPort(21);
+	client.setUser("myself");
+	client.setPassword("myself");
+	
+	
+	//setup client
+	client.setupClient();
+	client.connect();
+	client.login();
+	client.downloadFile(file, sourceDir, destDir);
+
+		
+
+Contact
+*******
+
+Feel free to contact me regarding this library at alejandrovillamarin at gmail dot com
+	
+	
+	
