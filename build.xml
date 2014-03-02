@@ -16,7 +16,7 @@
 	<property name="package.dir" value="org/ftp/simpleclient"/>
 	
 	<!-- Used for versioning system -->
-	<property name="revision.number" value="1"/>
+	<property name="revision.number" value="2"/>
 	<property name="minor.version.number" value="1"/>
 	<property name="major.version.number" value="1"/>
 	
@@ -27,7 +27,6 @@
 	<!-- Log4j library version -->
 	<property name="log4j.version.number" value="1.2.9"/>
 	<property name="log4j.name" value="log4j"/>
-	
 	
 	<!-- Classpath definition, ftp4j and log4j required -->
     <path id="ftpclient.classpath">
@@ -63,8 +62,6 @@
     		<fileset dir="${dist.dir}" includes="*"/>
     	</delete>
     	<delete failonerror="false" includeEmptyDirs="true" dir="${doc.dir}"/>
-    	<delete failonerror="false" includeEmptyDirs="true" dir="downloads"/>
-    	<delete failonerror="false" includeEmptyDirs="true" dir="uploads"/>
     </target>
 	
 	<!-- Calls the clean task -->
@@ -110,6 +107,8 @@
 		    			<include name="${package.dir}/*.java"/>
 		    			<include name="log4j.properties"/>
 		    		</fileset>
+		    		<!-- Comment this if you don't want sources attached to the JAR -->
+		    		<zipgroupfileset dir="${lib.dir}" includes="**/*.jar" />
 		    	</jar>
 		    	<echo message="Generation of the Very Simple FTP client JAR file finished!"/>
     </target>
@@ -138,7 +137,7 @@
 			<link href="http://www.sauronsoftware.it/projects/ftp4j/api/"/>
 		    
 			<doctitle><![CDATA[<h1>Vsftpclient API</h1>]]></doctitle>
-		    <bottom><![CDATA[<i> 2011 Alejandro Villamarin. Use, distribute, copy and share at your own discretion.</i>]]></bottom>
+		    <bottom><![CDATA[<i> 2011-2014 Alejandro Villamarin. Use, distribute, copy and share at your own discretion.</i>]]></bottom>
 		  </javadoc>
 	</target>
 	

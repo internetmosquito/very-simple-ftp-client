@@ -10,5 +10,12 @@
 * Version 1.1.1 : Fixed a bug in deleteDir method that was making not possible to delete a directory. Mostly
                   changed the way the directory to delete was being obtained after changing to parent directory
   
+03/02/2014 - Alejandro Villamarin <alejandro.villamarin@tecnalia.com>
+
+
+* Version 1.1.2 : Modified build.xml so it includes ftp4j and log4j classes in the final JAR, thus we have an uber-jar
+                  ready to use. Probably using OneJar ant task. 
+                  
+                  Migrating the project to GitHub...Google Code is just a nightmare, plain and simple
   
   
